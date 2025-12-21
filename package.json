@@ -1,7 +1,8 @@
 {
-  "name": "git-account-manager",
-  "displayName": "Git Account Manager",
+  "name": "multi-account-git-manager",
+  "displayName": "Multi-Account Git Manager",
   "description": "Manage multiple GitHub accounts and switch between them based on repository context",
+  "license": "MIT",
   "version": "0.0.1",
   "icon": "images/icon.png",
   "publisher": "kirankumar",
