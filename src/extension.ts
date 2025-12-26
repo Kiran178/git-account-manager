@@ -58,6 +58,20 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
             }
         })
     );
+
+    // Watch for .git/config changes to detect git init and remote changes
+    const gitConfigWatcher = vscode.workspace.createFileSystemWatcher('**/.git/config');
+    context.subscriptions.push(gitConfigWatcher);
+
+    gitConfigWatcher.onDidCreate(async () => {
+        await statusBarManager?.refresh();
+    });
+    gitConfigWatcher.onDidChange(async () => {
+        await statusBarManager?.refresh();
+    });
+    gitConfigWatcher.onDidDelete(async () => {
+        await statusBarManager?.refresh();
+    });
 }
 
 /**
